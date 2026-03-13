@@ -32,4 +32,4 @@ jobs:
       - name: Install dependencies
         run: pip install pip-audit flask
       - name: Run pip-audit
-        run: pip-auditß
+        run: pip-audit
