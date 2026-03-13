@@ -1,0 +1,30 @@
+# Secure CI/CD Pipeline
+
+A GitHub Actions security pipeline demonstrating automated SAST, secrets detection, and dependency scanning.
+
+## Pipeline Jobs
+
+| Job | Tool | What it catches |
+|-----|------|----------------|
+| secrets-scan | Gitleaks | Hardcoded API keys, tokens, passwords |
+| sast-scan | Semgrep | Code vulnerabilities like injection, debug mode |
+| dependency-scan | pip-audit | Known CVEs in Python dependencies |
+
+## Demo
+
+The included app.py is intentionally vulnerable to demonstrate pipeline detection:
+- Hardcoded secret key
+- Command injection via unsanitized user input
+- Debug mode enabled in production
+- Outdated dependencies with known CVEs
+
+## Usage
+
+Fork this repo and push to trigger the pipeline. All three jobs run automatically on push and PR to main.
+```
+
+Push it:
+```
+git add README.md
+git commit -m "Add README"
+git push
